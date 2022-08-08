@@ -15,7 +15,11 @@ class HomeViewModel @Inject constructor(private val fetchCandidatesUseCase: Fetc
     private val _candidatesState = mutableUIStateFlow<List<CandidateItemUI>>()
     val candidatesState = _candidatesState.asStateFlow()
 
-    fun fetchCandidates() {
-            fetchCandidatesUseCase().collectRequest(_candidatesState) { it.map { it.toUI() } }
+    init {
+        fetchCandidates()
+    }
+
+    private fun fetchCandidates() {
+        fetchCandidatesUseCase().collectRequest(_candidatesState) { it.map { it.toUI() } }
     }
 }

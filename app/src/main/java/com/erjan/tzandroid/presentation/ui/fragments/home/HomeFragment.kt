@@ -24,11 +24,6 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>(R.layout.f
         subscribeToCandidates()
     }
 
-    override fun setupRequests() {
-        viewModel.fetchCandidates(
-          )
-    }
-
     private fun subscribeToCandidates() {
         viewModel.candidatesState.collectUIState(
             onError = {

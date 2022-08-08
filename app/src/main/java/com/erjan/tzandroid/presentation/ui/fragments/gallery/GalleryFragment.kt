@@ -27,7 +27,7 @@ class GalleryFragment :
             isGranted -> {
                 viewModel.getPhotosFromGallery()
             }
-            !shouldShowRequestPermissionRationale(Manifest.permission.CAMERA) -> {
+            !shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE) -> {
                 showToastShort("No permissions")
             }
 
